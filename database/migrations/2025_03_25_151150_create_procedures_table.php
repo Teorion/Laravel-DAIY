@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('procedures', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('contribution_id')->references('contributions')->onDelete('cascade');
+            $table->foreignId('contribution_id')->references('id')->on('contributions')->onDelete('cascade');
             $table->integer('step_number');
             $table->string('title');
             $table->text('description');
