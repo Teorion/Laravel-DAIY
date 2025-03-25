@@ -3,10 +3,13 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Tag extends Model
 {
+    use HasFactory;
+
     protected $table = 'tags';
 
     protected $fillable = [
@@ -15,8 +18,8 @@ class Tag extends Model
         'user_id' //tag creator
     ];
 
-    public function contributions(): HasMany
+    public function contributions(): BelongsToMany
     {
-        return $this->hasMany(Contribution::class);
+        return $this->belongsToMany(Contribution::class);
     }
 }

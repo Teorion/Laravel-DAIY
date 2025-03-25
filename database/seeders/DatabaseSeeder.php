@@ -10,6 +10,10 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             UserSeeder::class,
+            //add setup seeder
+            TagSeeder::class,
+            MaterialSeeder::class,
+            //sample projects (contributions)
         ]);
     }
 }
